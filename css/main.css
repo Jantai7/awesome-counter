@@ -9,17 +9,26 @@
   min-height: 100vh;
 }
 body {
-  background: url("../img/mainBcg.jpeg") center/cover fixed no-repeat;
-  color: var(--mainWhite);
+  color: black;
+  text-align: center;
+  background: lightgray;
 }
-.main-container {
+.container {
   border: 0.1rem solid var(--mainWhite);
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.9); 
   border-radius: 0.2rem;
+  padding: 10px;
+  width: 40%;
+  height: auto;
+  margin: 100px auto;
+  background: #fff;
+}
+h1 {
+  font-size: 160%;
 }
 #counter {
   color: var(--mainGreen);
-  font-size: 10rem;
+  font-size: 8rem;
   color: var(--mainBlack);
 }
 .prevBtn,
@@ -27,19 +36,31 @@ body {
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.9);
   background: var(--mainBlue);
   color: var(--mainWhite);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
 }
-.prevBtn:hover {
+.prevBtn:hover,.nextBtn:hover {
   background: var(--lightBlue);
-}
-.nextBtn:hover {
-  background: var(--lightBlue);
+  color: red;
 }
 input {
-  outline: none;
-  padding: 5px;
-  background-color: inherit;
-  border: 1px solid #fff;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.9);
+  background: gray;
+  padding: 10px;
+  margin: 10px;
+  border: none;
 }
 input::placeholder {
-  color: #fff;
+  color: black;
+}
+
+#errorOutput {
+  color: red;
+  margin: 5px;
+  padding: 5px;
+}
+button {
+  outline: none;
 }

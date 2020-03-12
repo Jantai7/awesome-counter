@@ -1,27 +1,77 @@
 
-var count= 0
+var lowerValue = document.querySelector('#lowerValue');
+var upperValue = document.querySelector('#upperValue');
+var errorOutput = document.querySelector('#errorOutput');
 
-function trigger(val){
+var count= 0
+var lowerVal = 0;
+var upperVal = 0;
+
+function setLowervalue() {
+  lowerValue.addEventListener('change', function(e) {
+    if (e.target.value > 0) {
+      errorOutput.textContent = "Please give value less than 0 in order this option to work"
+      e.target.value = '';
+    }else {
+      lowerVal = Number(e.target.value);
+    }
+  })
+}
+setLowervalue();
+
+function setUpperValue() {
+  upperValue.addEventListener('change', function(e) {
+    if (e.target.value < 0) {
+      errorOutput.textContent = "Please give value more than 0 in order this option to work"
+      e.target.value = '';
+    } else {
+      upperVal = Number(e.target.value);
+    }
+  })
+}
+setUpperValue();
+
+
+function trigger(){
   var buttons = document.querySelectorAll('.counterBtn')
-  // var count= 0 // 2
 
   //Add event listeners and functionailty to each button  
   buttons.forEach(function(button){
     button.addEventListener('click', function(){
-      if (button.classList.contains('prevBtn') && typeof(val) === "number" && val < 0){
-        count--; // -2 
-        if(count <= val) { // 2 <= -2
-          count = val;
-        } 
-      } else if (button.classList.contains('nextBtn') && typeof(val) === "number" && val > 0){
-        count++;
-        if(count >= val) {
-          count = val;
-        } 
+
+      if (button.classList.contains('prevBtn') && lowerVal === 0){
+        count--;
+        console.log("5 count: ", count);
       }
-      // else {
-      //   count = 0;
-      // }
+      else if (button.classList.contains('prevBtn') && typeof(lowerVal) === "number" && lowerVal < 0){
+          count--; 
+          if(count <= lowerVal) { 
+            count = lowerVal;
+          } 
+          console.log("1 count: ", count);
+        }
+      else if (button.classList.contains('nextBtn') && upperVal === 0) {
+        count++;
+        console.log("6 count: ", count);
+      } 
+      else if (button.classList.contains('nextBtn') && typeof(upperVal) === "number" && upperVal > 0){
+          count++;
+          if(count >= upperVal) { 
+            count = upperVal;
+          } 
+          console.log("2 count: ", count);
+        }
+      else if (button.classList.contains('prevBtn') && typeof(lowerVal) === "number" && lowerVal > 0){
+        count--;
+        console.log("3 count: ", count);
+      }
+      else if (button.classList.contains('nextBtn') && typeof(upperVal) === "number" && upperVal < 0){
+        count++;
+        console.log("4 count: ", count);
+      }
+      else {
+        // do nothing
+      }
 
       //Select the counter text
       const counter = document.querySelector('#counter')
@@ -38,33 +88,9 @@ function trigger(val){
   })
 }
 
-// trigger();
-
-var lowerValue = document.querySelector('#lowerValue');
-var louput = document.querySelector('#lowerOutput');
+trigger();
 
 
-console.log(louput.innerHTML);
-lowerValue.addEventListener('input', function(e) {
-  louput.textContent = e.target.value;
-  var lowerVal = Number(louput.innerHTML);
-  console.log(lowerVal);
-  trigger(lowerVal);
-})
-
-
-var upperValue = document.querySelector('#upperValue');
-var uoutput = document.querySelector('#upperOutput');
-
-upperValue.addEventListener('input', function(event) {
-  // console.log(event.target.value);
-  uoutput.textContent = event.target.value;
-  // return e.target.value;
-  // console.log(louput.innerHTML);
-  var upperVal = Number(uoutput.innerHTML);
-  console.log(upperVal);
-  trigger(upperVal);
-})
 
 
 
