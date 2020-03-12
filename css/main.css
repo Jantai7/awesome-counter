@@ -55,7 +55,6 @@ input {
 input::placeholder {
   color: black;
 }
-
 #errorOutput {
   color: red;
   margin: 5px;
