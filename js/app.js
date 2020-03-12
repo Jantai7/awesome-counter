@@ -9,11 +9,12 @@ var upperVal = 0;
 
 function setLowervalue() {
   lowerValue.addEventListener('change', function(e) {
-    if (e.target.value > 0) {
+    var lVal = Number(e.target.value);
+    if (lVal > 0) {
       errorOutput.textContent = "Please give value less than 0 in order this option to work"
-      e.target.value = '';
+      lVal = '';
     }else {
-      lowerVal = Number(e.target.value);
+      lowerVal = lVal;
     }
   })
 }
@@ -21,11 +22,12 @@ setLowervalue();
 
 function setUpperValue() {
   upperValue.addEventListener('change', function(e) {
-    if (e.target.value < 0) {
+    var uVal = Number(e.target.value);
+    if (uVal < 0) {
       errorOutput.textContent = "Please give value more than 0 in order this option to work"
-      e.target.value = '';
+      uVal = '';
     } else {
-      upperVal = Number(e.target.value);
+      upperVal = uVal;
     }
   })
 }
