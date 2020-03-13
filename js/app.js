@@ -43,7 +43,7 @@ function trigger(){
   buttons.forEach(function(button){
     button.addEventListener('click', function(){
 
-      if (button.classList.contains('prevBtn') && lowerVal === 0){
+      if (button.classList.contains('prevBtn') && lowerVal === 0){ // currentNum > min get rid of else if
         count--;
         console.log("5 count: ", count);
       }

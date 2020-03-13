@@ -63,3 +63,10 @@ input::placeholder {
 button {
   outline: none;
 }
+.start {
+  background-color: red;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
