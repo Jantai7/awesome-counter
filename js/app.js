@@ -10,6 +10,10 @@ var upperVal = 0;
 function setLowervalue() {
   lowerValue.addEventListener('change', function(e) {
     var lVal = Number(e.target.value);
+    // if (!Number.isNaN(lVal)) {
+    //   errorOutput.textContent = "Invalid type";
+    //   return;
+    // }
     if (lVal > 0) {
       errorOutput.textContent = "Please give value less than 0 in order this option to work"
       lowerVal = Number.MIN_VALUE;
@@ -24,6 +28,10 @@ setLowervalue();
 function setUpperValue() {
   upperValue.addEventListener('change', function(e) {
     var uVal = Number(e.target.value);
+    //   if (!Number.isNaN(uVal)) {
+    //   errorOutput.textContent = "Invalid type";
+    //   return;
+    // }
     if (uVal < 0) {
       errorOutput.textContent = "Please give value more than 0 in order this option to work"
       upperVal = Number.MAX_VALUE;
@@ -43,11 +51,11 @@ function trigger(){
   buttons.forEach(function(button){
     button.addEventListener('click', function(){
 
-      if (button.classList.contains('prevBtn') && lowerVal === 0){ // currentNum > min get rid of else if
+      if (button.classList.contains('prevBtn') && lowerVal === 0){ 
         count--;
         console.log("5 count: ", count);
       }
-      else if (button.classList.contains('prevBtn') && typeof(lowerVal) === "number" && lowerVal < 0){
+      else if (button.classList.contains('prevBtn') && lowerVal < 0){
           count--; 
           if(count <= lowerVal) { 
             count = lowerVal;
@@ -58,18 +66,18 @@ function trigger(){
         count++;
         console.log("6 count: ", count);
       } 
-      else if (button.classList.contains('nextBtn') && typeof(upperVal) === "number" && upperVal > 0){
+      else if (button.classList.contains('nextBtn')  && upperVal > 0){
           count++;
           if(count >= upperVal) { 
             count = upperVal;
           } 
           console.log("2 count: ", count);
         }
-      else if (button.classList.contains('prevBtn') && typeof(lowerVal) === "number" && lowerVal > 0){
+      else if (button.classList.contains('prevBtn')  && lowerVal > 0){
         count--;
         console.log("3 count: ", count);
       }
-      else if (button.classList.contains('nextBtn') && typeof(upperVal) === "number" && upperVal < 0){
+      else if (button.classList.contains('nextBtn') && upperVal < 0){
         count++;
         console.log("4 count: ", count);
       }
